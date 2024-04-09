@@ -5,12 +5,13 @@ import quizzesRoutes from "./Quiz/Quizzes/routes.js";
 import choiceQsRoutes from "./Quiz/ChoiceQs/routes.js";
 import optionsRoutes from "./Quiz/Options/optionRoute.js";
 
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRIN
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING
 const app = express();
 mongoose.connect(CONNECTION_STRING);
 
 app.use(cors());
 app.use(express.json());
+
 quizzesRoutes(app);
 optionsRoutes(app);
 choiceQsRoutes(app);
