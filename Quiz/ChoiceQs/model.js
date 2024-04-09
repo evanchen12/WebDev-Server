@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import ChoiceQsSchema from "./schema.js";
+import choiceQsSchema from "./schema.js";
 
-const model = mongoose.model("ChoiceQsModel", ChoiceQsSchema);
+const model = mongoose.model("ChoiceQsModel", choiceQsSchema);
 
 export default model;
