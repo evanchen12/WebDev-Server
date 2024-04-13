@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from "cors";
+import "dotenv/config";
 import mongoose from 'mongoose';
 import QuizzesRoutes from "./Quiz/Quizzes/routes.js";
 import ChoiceQsRoutes from "./Quiz/ChoiceQs/routes.js";
