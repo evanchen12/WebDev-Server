@@ -23,13 +23,13 @@ export default function QuizzesRoute(app) {
         const {qId} = req.params;
         const status = await dao.updateQuizDetail(qId, req.body);
         res.json(status)
-    } 
+    }
 
-    
-    app.get("/api/quiz/all", async (req, res) => {
-        const result = await dao.getAllDetails();
-        res.json(result);
-    })
+    const deleteQuizDetail =  async(req, res) => {
+        const {qId} = req.params;
+        const status = await dao.deleteDetails(qId);
+        res.json(status);
+    }
 
     app.post("/api/quiz", createDetail);
     app.get("/api/quiz/detail/:qId", getDetail);
