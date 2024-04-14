@@ -7,14 +7,9 @@ export default function ChoiceQsRoutes(app) {
   };
 
   const findAllChoiceQs = async (req, res) => {
-    const choiceQ = await dao.findAllChoiceQs();
+    const choiceQ = await dao.findAllChoiceQs(req.params.id);
     res.json(choiceQ);
   }
-
-  const findChoiceQById = async (req, res) => {
-    const choiceQ = await dao.findChoiceQById(req.params.id);
-    res.json(choiceQ);
-  };
 
   const updateChoiceQ = async (req, res) => {
     const {id} = req.params;
@@ -22,15 +17,14 @@ export default function ChoiceQsRoutes(app) {
     res.json(status);
   };
 
-  const deleteChoiceQ =async (req, res) => {
+  const deleteChoiceQ = async (req, res) => {
     const status = await dao.deleteChoiceQ(req.params.id);
     res.json(status);
   };
 
 
   app.post("/api/questions", createChoiceQ);
-  app.get("/api/questions", findAllChoiceQs);
-  app.get("/api/questions/:id", findChoiceQById);
+  app.get("/api/questions/:id", findAllChoiceQs);
   app.put("/api/questions/:id", updateChoiceQ);
   app.delete("/api/questions/:id", deleteChoiceQ);
 }
