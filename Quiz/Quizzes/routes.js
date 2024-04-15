@@ -8,7 +8,7 @@ export default function QuizzesRoute(app) {
         res.json(quizDetail);
     } 
 
-    const getDetail = async (req, res) => {
+    const getDetailById = async (req, res) => {
         const {qId} = req.params;
         const quizDetail = await dao.getQuizDetail(qId);
         if (!quizDetail) {
@@ -16,7 +16,6 @@ export default function QuizzesRoute(app) {
             return;
         }
         res.json(quizDetail)
-
     }
 
     const updateDetail = async (req, res) => {
@@ -28,10 +27,18 @@ export default function QuizzesRoute(app) {
     const deleteQuizDetail =  async(req, res) => {
         const {qId} = req.params;
         const status = await dao.deleteDetails(qId);
+        
         res.json(status);
     }
 
+    const getQuizzes = async(req, res) => {
+        const quizzes = await dao.getAllDetails()
+        res.json(quizzes)
+    }
+
     app.post("/api/quiz", createDetail);
-    app.get("/api/quiz/detail/:qId", getDetail);
-    app.put("/api/quiz/update/:qId", updateDetail);
+    app.get("/api/quiz/:qId", getDetailById);
+    app.get("/api/quiz", getQuizzes)
+    app.put("/api/quiz/:qId", updateDetail);
+    app.delete("/api/quiz/:qId", deleteQuizDetail)
 }
