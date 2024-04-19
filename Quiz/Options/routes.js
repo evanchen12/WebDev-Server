@@ -7,7 +7,7 @@ export default function OptionsRoutes(app) {
     };
   
     const findAllOptions = async (req, res) => {
-      const option = await dao.findAllOptions(req.params.id);
+      const option = await dao.findAllOptions();
       res.json(option);
     }
   
@@ -24,7 +24,7 @@ export default function OptionsRoutes(app) {
   
   
     app.post("/api/options", createOption);
-    app.get("/api/options/:id", findAllOptions);
+    app.get("/api/options", findAllOptions);
     app.put("/api/options/:id", updateOptions);
     app.delete("/api/options/:id", deleteOptions);
   }
