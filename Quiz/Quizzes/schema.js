@@ -12,10 +12,10 @@ const quizzesSchema = new mongoose.Schema({
   limit: Number,
   multiple: Boolean,
   showCorrect: Boolean,
-  show: {
-    type: String,
-    enum: ["Immediately"],
-    default: "Immediately"},
+  // show: {
+  //   type: String,
+  //   enum: ["Immediately"],
+  //   default: "Immediately"},
   code: Number,
   oneAtATime: Boolean,
   webcam: Boolean,
