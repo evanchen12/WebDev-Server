@@ -13,12 +13,12 @@ export default function OptionsRoutes(app) {
   
     const updateOptions = async (req, res) => {
       const {id} = req.params;
-      const status = await dao.updateOptions(id, req.body);
+      const status = await dao.updateOption(id, req.body);
       res.json(status);
     };
   
     const deleteOptions = async (req, res) => {
-      const status = await dao.deleteOptions(req.params.id);
+      const status = await dao.deleteOption(req.params.id);
       res.json(status);
     };
   
