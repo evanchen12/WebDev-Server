@@ -20,9 +20,9 @@ const quizzesSchema = new mongoose.Schema({
   oneAtATime: Boolean,
   webcam: Boolean,
   lock: Boolean,
-  due: Date,
-  availiable: Date,
-  until: Date,
+  due: String,
+  availiable: String,
+  until: String,
   publish: Boolean,
 },
 { collection: "quizzes" });

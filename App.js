@@ -6,7 +6,7 @@ import QuizzesRoutes from "./Quiz/Quizzes/routes.js";
 import ChoiceQsRoutes from "./Quiz/ChoiceQs/routes.js";
 import OptionsRoutes from "./Quiz/Options/routes.js";
 
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRING;
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || "mongodb://localhost:27017/quiz";
 const app = express();
 mongoose.connect(CONNECTION_STRING);
 
